@@ -1,0 +1,52 @@
+---
+# AWS account specific parameters
+aws_access_key: ""
+aws_secret_key: ""
+ec2_region: ap-southeast-2
+subnet: 
+vpc_id: 
+
+# Project specific parameters
+project_prefix: "sbt"
+project_name: "SBT Monitoring"
+project_dirs: 
+  src: ./app.sample/
+  dest: /opt/app
+
+keypair: "private-projects"
+keypair_path: ~/.ssh/{{ keypair }}.pem
+
+num_instances: 1
+instance_type: t2.micro
+instance_tags:
+  Name: "{{ project_prefix }}-monitoring"
+  Team: Sportsbet
+  CostCentre: 1617
+
+# Update the following URL based on the RHEL/RedHat linux distro being used.
+ee:
+  enabled: false
+  url: ""
+  version: 7 
+
+# Security group rules
+sg:
+  incoming_rules:
+    - proto: tcp
+      from_port: 80
+      to_port: 80
+      cidr_ip: 0.0.0.0/0
+    - proto: tcp
+      from_port: 443
+      to_port: 443
+      cidr_ip: 0.0.0.0/0
+    - proto: tcp
+      from_port: 22
+      to_port: 22
+      cidr_ip: 0.0.0.0/0
+
+  outgoing_rules:
+  - proto: all
+    from_port: all
+    to_port: all
+    cidr_ip: 0.0.0.0/0

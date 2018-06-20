@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Setup python virtual-env for setting up dependancies
+sudo pip install -U virtualenv
+
+# Create a python virtual environment
+virtualenv .venv
+
+# Enable the virtual environment
+source .venv/bin/activate
+
+# Then intall with pip will be inside that virtual environment
+pip install -r requirements.txt

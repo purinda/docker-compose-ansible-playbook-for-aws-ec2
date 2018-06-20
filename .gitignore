@@ -1,0 +1,4 @@
+*.retry
+.venv
+pip-selfcheck.json
+*.DS_*
