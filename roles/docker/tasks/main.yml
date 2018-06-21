@@ -40,8 +40,9 @@
   include: "os_family/{{ ansible_os_family }}.yml"
 
 - name: Cleanup previous docker-py packages if installed
-  shell: >
-    /usr/local/bin/pip uninstall --yes {{ item }}
+  pip:
+    name: "{{ item }}"
+    state: absent
   become: yes
   with_items:
     - docker
@@ -52,8 +53,9 @@
 # module.
 # https://stackoverflow.com/questions/6200056/pip-broke-how-to-fix-distributionnotfound-error
 - name: Install docker-py and docker-compose
-  shell: >
-    /usr/local/bin/pip install {{ item }}
+  pip:
+    name: "{{ item }}"
+    state: present
   become: yes
   with_items:
     - docker

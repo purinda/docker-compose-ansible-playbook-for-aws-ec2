@@ -1,14 +1,13 @@
 ---
 # AWS account specific parameters
-aws_access_key: ""
-aws_secret_key: ""
+aws_profile: default
 ec2_region: ap-southeast-2
-subnet: 
+subnet:
 vpc_id: 
 
 # Project specific parameters
-project_prefix: "sbt"
-project_name: "SBT Monitoring"
+project_label: "abc-project"
+project_name: "ABC Project"
 project_dirs: 
   src: ./app.sample/
   dest: /opt/app
@@ -19,7 +18,7 @@ keypair_path: ~/.ssh/{{ keypair }}.pem
 num_instances: 1
 instance_type: t2.micro
 instance_tags:
-  Name: "{{ project_prefix }}-monitoring"
+  Name: "{{ project_label }}"
   Team: Sportsbet
   CostCentre: 1617
 
