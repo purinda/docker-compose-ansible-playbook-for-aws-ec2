@@ -21,11 +21,14 @@ if [ "$#" -ne 1 ]; then
     exit 2
 fi
 
+# Figure out the AWS profile to use from the project vars file
+PROFILE=$(grep 'aws_profile:' $1 | tail -n1); PROFILE=${db//*aws_profile: /};
+
 # Enable the virtual environment
 source .venv/bin/activate
 
 # Run the playbook
 if [[ -x "$ANSIBLE_PLAYBOOK" ]]
 then
-    $ANSIBLE_PLAYBOOK launch.yml --extra-vars="@$1" -vvvv
+    AWS_PROFILE=$PROFILE $ANSIBLE_PLAYBOOK launch.yml --extra-vars="@$1" -vvvv
 fi
