@@ -72,7 +72,24 @@ profile section under `~/.aws/credentials` which playbook will use.
 
 Running the playbook: `$ ./launch project-abc-deploy.yml` does the following:
 
-1. Creates an instance based on the `project-abc-deploy.yml` with a security group 
- as per configuration.
-2. Installs Docker-Engine, Docker-Machine and Docker-Compose on the node.
-3. Runs tasks such as docker and compose
+1. Creates an instance based on the `project-abc-deploy.yml` with a security 
+ group as per configuration.
+3. Installs Docker-Engine, Docker-Machine and Docker-Compose on the node.
+4. Runs tasks such as docker and compose
+
+## Deploying the Sample Application
+
+The sample application provided is located under `app.sample.` directory.
+This is a _docker-compose_ version 3 based Python + PHP application which has an
+Flask API and a PHP based frontend for demo purposes.
+
+In order to deploy this, follow the steps:
+
+1. `cp project_vars.yml.sample project-sample-app.yml`
+2. Edit `project-sample-app.yml` file and update `subnet`, `vpc_id`, `keypair`
+ and `keypair_path` properties after referring to your AWS account.
+3. Make sure you have a `[default]` AWS profile setup with access keys under your 
+ `~/.aws/credentials`.
+4. Deploy using `./launch project-sample-app.yml`
+5. You should be able to access the web interface of the app thought the 
+ _Public IP or URL_ of the instance.

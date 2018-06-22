@@ -19,7 +19,7 @@ num_instances: 1
 instance_type: t2.micro
 instance_tags:
   Name: "{{ project_label }}"
-  Team: Sportsbet
+  Team: "Your Team Name"
   CostCentre: 1617
 
 # Update the following URL based on the RHEL/RedHat linux distro being used.
