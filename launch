@@ -22,7 +22,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 # Figure out the AWS profile to use from the project vars file
-PROFILE=$(grep 'aws_profile:' $1 | tail -n1); PROFILE=${db//*aws_profile: /};
+PROFILE=$(grep 'aws_profile' $1 | tail -n1 | cut -d : -f 2 | awk '{$1=$1;print}');
 
 # Enable the virtual environment
 source .venv/bin/activate
