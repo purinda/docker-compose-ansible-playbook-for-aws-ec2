@@ -4,7 +4,7 @@
   connection: local
   gather_facts: false
   vars_files:
-    - group_vars/all.yml
+    - group_vars/ec2.yml
   vars:
     ansible_ssh_private_key_file: "{{ keypair_path }}"
 
@@ -20,7 +20,7 @@
 
     - name: Removing security groups
       ec2_group:
-        name: "{{ project_prefix }}-project-sg"
+        name: "{{ project_label }}-sg"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
         state: absent
