@@ -8,7 +8,7 @@ The deploy.yml playbook creates an instance or instances required and deploys
 application and `docker-composer up -d` it.
 
 
-### Installation & Setup
+## Installation & Setup
 
 This project uses python `virtualenv` package to separate project dependancies
 from rest of your python modules/configuration on your system.
@@ -27,7 +27,7 @@ the virtual environment.
     * molecule
 
 
-### Usage
+## Usage
 
 Your _docker-compose_ project can be placed anywhere in your localhost, what is 
 required is for you to configure the parameters in the deployment YML which you 
@@ -39,7 +39,7 @@ command. Make a copy of the sample file provided as below
 > `cp project_vars.yml.sample project-abc-deploy.yml`
 
 
-##### Project Configuration
+#### Project Configuration
 
 Change the parameters in `project-abc-deploy.yml` to setup security groups and 
 instance to fit the AWS account you have.
@@ -59,7 +59,7 @@ project_dirs:
 ```
 
 
-##### AWS Authentication
+#### AWS Authentication
 
 `aws_profile` variable is used by the playbook to access the AWS credentials and
 other information stored against profiles in `~/.aws/credentials` file. 
@@ -68,7 +68,7 @@ combined with the playbook. The external script/app needs to write a
 profile section under `~/.aws/credentials` which playbook will use. 
 
 
-### What it does
+## What it does
 
 Running the playbook: `$ ./launch project-abc-deploy.yml` does the following:
 
