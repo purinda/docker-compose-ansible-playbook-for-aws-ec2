@@ -1,4 +1,3 @@
 *.retry
 .venv
-pip-selfcheck.json
-*.DS_*
+sample*.yml

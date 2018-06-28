@@ -1,4 +1,4 @@
-# Provisioner for Docker on EC2 instances
+# Docker Provisioning for EC2 instances
 
 This playbook has only *one* purpose and one alone which is to provision 
 docker-_compose_ projects easily on Amazon EC2 service _regardless of the AMI or 
@@ -10,16 +10,16 @@ application and `docker-composer up -d` it.
 
 ## Installation & Setup
 
-This project uses python `virtualenv` package to separate project dependancies
+This project uses python `virtualenv` package to separate project dependencies
 from rest of your python modules/configuration on your system.
 
-Run the following to setup the virtualenv and install project dependancies
+Run the following to setup the virtualenv and install project dependencies
 
 > `./install`
 
 Project requires `python >= 2.7`.
 
-Note: following is a list of dependancies that the install script will pull into
+Note: following is a list of dependencies that the install script will pull into
 the virtual environment.
 
     * Ansible>=2.0,<3.0
@@ -44,14 +44,13 @@ command. Make a copy of the sample file provided as below
 Change the parameters in `project-abc-deploy.yml` to setup security groups and 
 instance to fit the AWS account you have.
 
-Following manadatory paths for the deployment config needs to be updated for 
+Following mandatory paths for the deployment config needs to be updated for 
 successfully deploying the  _docker-compose_ application.
 
 ```
 # Project specific parameters
-project_prefix: "abc" # this could be abbreviation of your company
-project_name: "ABC Project 1" # human readable project name used for resource
-tagging
+project_prefix: "abc"           # this could be abbreviation of your company
+project_name: "ABC Project 1"   # human-readable project name used for resource tagging
 
 project_dirs: 
   src: ./app.sample/

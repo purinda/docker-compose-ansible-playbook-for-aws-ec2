@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-CWD="$(dirname "$0")"
-source $CWD/utils/common.sh
+
+app="$( cd "$( dirname "$( readlink -f "${BASH_SOURCE[0]}" )" )" && pwd )"
+source "${app}/src/txt.sh"
+source "${app}/src/common.sh"
 
 # Run the playbook
-if [[ -x "$ANSIBLE_PLAYBOOK" ]]
+if [[ -x "${ANSIBLE_PLAYBOOK}" ]]
 then
-    AWS_PROFILE=$PROFILE $ANSIBLE_PLAYBOOK launch.yml --extra-vars="@$1" -v
+    AWS_PROFILE=${PROFILE} ${ANSIBLE_PLAYBOOK} launch.yml --extra-vars="@$1" -v
 fi

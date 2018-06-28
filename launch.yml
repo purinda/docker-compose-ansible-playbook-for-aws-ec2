@@ -53,7 +53,7 @@
 - name: Configure instance
   hosts: launched
   sudo: yes
-  remote_user: ec2-user
+  remote_user: "{{ ec2.user }}"
   gather_facts: true
   vars:
     ansible_ssh_private_key_file: "{{ keypair_path }}"
