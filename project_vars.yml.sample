@@ -22,6 +22,11 @@ instance_tags:
   Team: "Your Team Name"
   CostCentre: 1617
 
+# Optional: override the default image (required if changing from ap-southeast-2)
+#ec2:
+#  image: ami-5daa463a
+#  user: ec2-user
+
 # Update the following URL based on the RHEL/RedHat linux distro being used.
 ee:
   enabled: false

@@ -6,6 +6,7 @@
     state: present
   with_items:
     - linux-image-extra-virtual
+    - python
 
 - name: Add docker repository for Ubuntu
   shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"

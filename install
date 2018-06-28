@@ -1,13 +1,25 @@
 #!/usr/bin/env bash
 
-# Setup python virtual-env for setting up dependancies
-sudo pip install -U virtualenv
+app="$( cd "$( dirname "$( readlink -f "${BASH_SOURCE[0]}" )" )" && pwd )"
+source "${app}/src/txt.sh"
+
+# Setup python virtual-env for setting up dependencies
+note "Checking virtualenv installation.."
+sudo -H pip install -qIU --no-warn-conflicts virtualenv
+is_ok
 
 # Create a python virtual environment
-virtualenv .venv
+note "Creating virtual environment.."
+virtualenv -q .venv
+is_ok
 
 # Enable the virtual environment
-source .venv/bin/activate
+note "Activating environment.."
+# TODO: should this be done using src/commonn.sh?
+source "${app}/.venv/bin/activate"
+is_ok
 
-# Then intall with pip will be inside that virtual environment
-pip install -r requirements.txt
+# Then install with pip will be inside that virtual environment
+note "Installing requirements.."
+pip install -qIr requirements.txt
+is_ok
