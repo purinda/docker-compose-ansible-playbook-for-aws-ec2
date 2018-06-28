@@ -11,8 +11,6 @@
   tasks:
     - name: Terminating instances
       ec2_instance:
-        aws_access_key: "{{ aws_access_key }}"
-        aws_secret_key: "{{ aws_secret_key }}"
         vpc_subnet_id: "{{ subnet }}"
         tags: "{{ instance_tags }}"
         wait: true
@@ -21,7 +19,5 @@
     - name: Removing security groups
       ec2_group:
         name: "{{ project_label }}-sg"
-        aws_access_key: "{{ aws_access_key }}"
-        aws_secret_key: "{{ aws_secret_key }}"
         state: absent
         vpc_id: "{{ vpc_id }}"
