@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-app="$( cd "$( dirname "$( readlink -f "${BASH_SOURCE[0]}" )" )" && pwd )"
+app=$( cd "$(dirname "$0")" ; pwd -P )
 source "${app}/src/txt.sh"
 
 # Setup python virtual-env for setting up dependencies

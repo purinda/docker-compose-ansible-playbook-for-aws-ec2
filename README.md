@@ -24,7 +24,6 @@ the virtual environment.
 
     * Ansible>=2.0,<3.0
     * boto
-    * molecule
 
 
 ## Usage
