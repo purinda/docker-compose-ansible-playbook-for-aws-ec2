@@ -1,5 +1,5 @@
 # This file both sets common variables _and_ executes modules, it must be safe to run multiple times
-# TODO: consider breaking this into an 'init' and 'exec' module
+# TODO: consider breaking this into an 'init' and 'activate' module
 
 source "${app}/src/txt.sh"
 
