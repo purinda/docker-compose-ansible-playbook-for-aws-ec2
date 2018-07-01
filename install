@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-app="$( cd "$( dirname "$( readlink -f "${BASH_SOURCE[0]}" )" )" && pwd )"
+app=$( cd "$(dirname "$0")" ; pwd -P )
 source "${app}/src/txt.sh"
 
 # Setup python virtual-env for setting up dependencies
@@ -10,7 +10,7 @@ is_ok
 
 # Create a python virtual environment
 note "Creating virtual environment.."
-virtualenv -q .venv
+virtualenv -q "${app}/.venv"
 is_ok
 
 # Enable the virtual environment
@@ -21,5 +21,5 @@ is_ok
 
 # Then install with pip will be inside that virtual environment
 note "Installing requirements.."
-pip install -qIr requirements.txt
+pip install -qIr "${app}/requirements.txt"
 is_ok
