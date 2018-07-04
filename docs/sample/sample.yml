@@ -1,18 +1,18 @@
 ---
 # AWS account specific parameters
 aws_profile: default
-ec2_region: ap-southeast-2
-subnet:
-vpc_id: 
+ec2_region: eu-west-2
+subnet: subnet-3018257a
+vpc_id: vpc-92a750fb
 
 # Project specific parameters
-project_label: "abc-project"
-project_name: "ABC Project"
+project_label: "sample"
+project_name: "Sample Project"
 project_dirs: 
   src: ./app.sample/
   dest: /opt/app
 
-keypair: "private-projects"
+keypair: "jordon-london"
 keypair_path: ~/.ssh/{{ keypair }}.pem
 
 num_instances: 1
@@ -22,10 +22,9 @@ instance_tags:
   Team: "Your Team Name"
   CostCentre: 1617
 
-# Optional: override the default image (required if changing from ap-southeast-2)
-#ec2:
-#  image: ami-5daa463a
-#  user: ec2-user
+ec2:
+  image: ami-5daa463a
+  user: ubuntu
 
 # Update the following URL based on the RHEL/RedHat linux distro being used.
 ee:

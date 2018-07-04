@@ -15,7 +15,7 @@ from rest of your python modules/configuration on your system.
 
 Run the following to setup the virtualenv and install project dependencies
 
-> `./install`
+> `./daws setup`
 
 Project requires `python >= 2.7`.
 
@@ -68,7 +68,7 @@ profile section under `~/.aws/credentials` which playbook will use.
 
 ## What it does
 
-Running the playbook: `$ ./launch project-abc-deploy.yml` does the following:
+Running the playbook: `$ ./daws launch project-abc-deploy.yml` does the following:
 
 1. Creates an instance based on the `project-abc-deploy.yml` with a security 
  group as per configuration.

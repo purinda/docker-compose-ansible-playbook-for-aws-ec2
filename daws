@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Docker AWS Provisioning Toolkit
+
+# Required for relative references to config files
+app=$( cd "$(dirname "$0")" ; pwd -P )
+
+# Name/version
+name="Docker Provisioning for EC2 instances"
+version=`cat ${app}/var/version`
+
+# Core settings
+eval venv="~/.docker-aws/venv"
+
+# Runs the main app
+source "${app}/src/cli.sh"
+cli_parse "$@"

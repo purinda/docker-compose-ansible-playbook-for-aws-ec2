@@ -1,3 +1,1 @@
-*.retry
-.venv
-sample*.yml
+ansible/*.retry
