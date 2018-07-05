@@ -9,7 +9,7 @@ vpc_id: vpc-92a750fb
 project_label: "sample"
 project_name: "Sample Project"
 project_dirs: 
-  src: ./app.sample/
+  src: "{{ playbook_dir }}/../docs/sample/app.sample/"
   dest: /opt/app
 
 keypair: "jordon-london"
@@ -25,6 +25,10 @@ instance_tags:
 ec2:
   image: ami-5daa463a
   user: ubuntu
+
+# Launch commands, before attempting to install anything else; good opportunity to install configure AMI-specific items
+commands:
+  - apt-get update && apt-get -y install python
 
 # Update the following URL based on the RHEL/RedHat linux distro being used.
 ee:
@@ -49,7 +53,7 @@ sg:
       cidr_ip: 0.0.0.0/0
 
   outgoing_rules:
-  - proto: all
-    from_port: all
-    to_port: all
+  - proto: -1
+    from_port: -1
+    to_port: -1
     cidr_ip: 0.0.0.0/0

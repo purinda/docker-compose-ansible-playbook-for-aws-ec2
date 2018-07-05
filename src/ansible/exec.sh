@@ -14,21 +14,22 @@ function daws_launch() {
 # Teardown all EC2 instances belonging to this project
 function daws_teardown() {
     # Get user confirmation before trashing everything
-    local project_name=$(grep 'project_name' $1 | tail -n1 | cut -d : -f 2 | awk '{$1=$1;print}');
-    read -p "Do you wish to terminate all the AWS resources launched against ${project_name} (Y/N) " yn
-    case $yn in
-        [Yy]* )
-            break
-            ;;
-        [Nn]* )
-            echo "Aborting"
-            return
-            ;;
-        * )
-            echo "Unclear response, aborting"
-            return
-            ;;
-    esac
+    if [[ "${FORCE_YES}" -ne 1 ]]; then
+        local project_name=$(grep 'project_name' $1 | tail -n1 | cut -d : -f 2 | awk '{$1=$1;print}');
+        read -p "Do you wish to terminate all the AWS resources launched against ${project_name}? [y/n] " ans
+        case "${ans}" in
+            [Yy]* )
+                ;;
+            [Nn]* )
+                console "Aborting"
+                return 0
+                ;;
+            * )
+                console "Unclear response, aborting"
+                return 0
+                ;;
+        esac
+    fi
 
     run_playbook "teardown" "$1"
     return $?

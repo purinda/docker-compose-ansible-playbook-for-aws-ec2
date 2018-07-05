@@ -6,24 +6,24 @@ source "${app}/src/txt.sh"
 # CLI help screen
 function help_scr() {
     title "${name}"
-    echo -n "Version "; note "${version}"; echo
-    echo
-    echo "Usage:"
-    echo "  $0 [args] [command]"
-    echo
-    echo "Arguments:"
-    echo "   --log fn               Use a different logging location (default ~/.docker-aws/log)"
-    echo "   --venv fn              Use a different location for the virtual environment (default ~/.docker-aws/venv)"
-    echo "   --version              Display current version"
-    echo "   -v --verbose           Increase logging output"
-    echo
-    echo "Commands:"
-    echo "   setup                  Configure the virtual environment"
-    echo "   create                 Create a new project"
-    echo "   launch fn              Launch application found in profile 'fn'"
-    echo "   teardown fn            Teardown application found in profile 'fn'"
-    echo "   help                   Display this help screen"
-    echo
+    console_n "Version "; note "${version}"; console
+    console
+    console "Usage:"
+    console "  $0 [args] [command]"
+    console
+    console "Arguments:"
+    console "   --log fn               Use a different logging location (default ~/.docker-aws/log)"
+    console "   --venv fn              Use a different location for the virtual environment (default ~/.docker-aws/venv)"
+    console "   --version              Display current version"
+    console "   -y --force-yes         Answer yes to all confirmations"
+    console "   -v --verbose           Increase logging output"
+    console
+    console "Commands:"
+    console "   setup                  Configure the virtual environment"
+    console "   launch fn              Launch application found in profile 'fn'"
+    console "   teardown fn            Teardown application found in profile 'fn'"
+    console "   help                   Display this help screen"
+    console
 }
 
 # Parse the command line
@@ -61,8 +61,12 @@ function cli_parse() {
                 VERBOSE=1
                 shift
                 ;;
+            -y|--force-yes)
+                FORCE_YES=1
+                shift
+                ;;
             --version)
-                echo "${version}"
+                console "${version}"
                 shift
                 ;;
             --venv)
@@ -77,7 +81,7 @@ function cli_parse() {
                 exit 0
                 ;;
             *)
-                echo -n "Unknown command line option '"; note "$1"; echo "'"
+                console_n "Unknown command line option '"; note "$1"; console "'"
                 exit 1
                 ;;
         esac

@@ -3,7 +3,7 @@
 - name: Display all variables/facts known for a host
   debug:
     var: hostvars[inventory_hostname]
-    verbosity: 2
+    verbosity: 1
 
 - name: Add other bin dirs to system-wide $PATH.
   copy:

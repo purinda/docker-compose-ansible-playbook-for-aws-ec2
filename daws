@@ -10,6 +10,7 @@ version=`cat ${app}/var/version`
 
 # Core settings
 eval venv="~/.docker-aws/venv"
+eval log="~/.docker-aws/log"
 
 # Runs the main app
 source "${app}/src/cli.sh"

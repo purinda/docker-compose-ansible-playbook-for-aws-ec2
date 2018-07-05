@@ -3,14 +3,25 @@
 source "${app}/src/txt.sh"
 
 
+# Checks the virtual environment is ready and activates it
+# Will install the environment if it is missing
 function venv_activate() {
+    if [[ ! -d "${venv}" ]]; then
+        err "Virtual environment missing"
+        out " - running venv setup"
+        source "${app}/src/venv/setup.sh"
+        venv_setup
+    fi
+
     # Check if virtualenv is initialised
-    if [ ! -f "${venv}/bin/activate" ]
-    then
-        err "Python virtualenv is not initialised. Please run the setup command first."
+    if [ ! -f "${venv}/bin/activate" ]; then
+        err "Virtual environment activate binary missing. Aborting."
         return 1
     fi
 
+    log_n "Activating virtual environment in '${venv}'.."
     source "${venv}/bin/activate"
-    return $?
+    local r="$?"
+    log " done"
+    return ${r}
 }
