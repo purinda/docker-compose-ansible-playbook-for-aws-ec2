@@ -18,8 +18,8 @@
         description: Security Group for {{ project_name }} Servers
         state: present
         vpc_id: "{{ vpc_id }}"
-        rules: "{{ sg.incoming_rules }}"
-        rules_egress: "{{ sg.outgoing_rules }}"
+        rules: "{{ security_group.incoming_rules }}"
+        rules_egress: "{{ security_group.outgoing_rules }}"
 
     - name: Launch EC2 instances
       ec2_instance:
