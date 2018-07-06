@@ -16,7 +16,7 @@ function venv_activate() {
     # Check if virtualenv is initialised
     if [ ! -f "${venv}/bin/activate" ]; then
         err "Virtual environment activate binary missing. Aborting."
-        return 1
+        exit 3
     fi
 
     log_n "Activating virtual environment in '${venv}'.."
