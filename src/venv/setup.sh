@@ -20,14 +20,13 @@ function venv_setup() {
     # Detect OS family to run PIP as user or root
     out_n "Checking OS family: "
     detect_os
-    out_n "${os_family} detected.."
-    is_ok
+    out "${os_family} detected.."
 
     # Setup python virtual-env for setting up dependencies
-    out_n "Checking virtualenv installation.."
-    if [[ "${os_family}" eq "OSX" ]]; then
+    out_n "Installing virtualenv.."
+    if [[ "${os_family}" = "OSX" ]]; then
         pip install -qIU --no-warn-conflicts --user virtualenv
-    elif 
+    elif [[ "${os_family}" = "Linux" ]]; then
         sudo pip install -qIU --no-warn-conflicts virtualenv
     fi
     is_ok
