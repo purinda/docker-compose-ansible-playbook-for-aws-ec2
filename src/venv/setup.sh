@@ -1,15 +1,35 @@
 [ $VENV_SETUP_SH ] && return || VENV_SETUP_SH=1
 
 source "${app}/src/txt.sh"
+source "${app}/src/os.sh"
 source "${app}/src/venv/common.sh"
 
 
 function venv_setup() {
     log "Install venv: ${venv}"
 
+    # Check if pip is available
+    out_n "Checking python-pip is installed.."
+    if [[ ! $(command -v pip) ]]; then
+        err "PIP package manager needs to be installed. Aborting."
+        err "http://pip.pypa.io/en/stable/installing/"
+        exit
+    fi
+    is_ok
+
+    # Detect OS family to run PIP as user or root
+    out_n "Checking OS family: "
+    detect_os
+    out_n "${os_family} detected.."
+    is_ok
+
     # Setup python virtual-env for setting up dependencies
     out_n "Checking virtualenv installation.."
-    sudo -H pip install -qIU --no-warn-conflicts virtualenv
+    if [[ "${os_family}" eq "OSX" ]]; then
+        pip install -qIU --no-warn-conflicts --user virtualenv
+    elif 
+        sudo pip install -qIU --no-warn-conflicts virtualenv
+    fi
     is_ok
 
     if [[ -d "${venv}" ]]; then

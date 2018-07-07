@@ -4,8 +4,8 @@ This playbook has only *one* purpose and one alone which is to provision
 docker-_compose_ projects easily on Amazon EC2 service _regardless of the AMI or 
 linux distribution used_. 
 
-The deploy.yml playbook creates an instance or instances required and deploys 
-application and `docker-composer up -d` it.
+The playbook creates an instance or instances required, deploys the application 
+and `docker-composer up -d` it.
 
 
 ## Installation & Setup
