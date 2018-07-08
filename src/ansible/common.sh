@@ -6,8 +6,16 @@ source "${app}/src/venv/common.sh"
 
 # Executes an Ansible playbook
 function run_playbook() {
+    local aws_creds="${HOME}/.aws/credentials"
     local playbook="${venv}/bin/ansible-playbook"
     local profile=$(grep 'aws_profile' $2 | tail -n1 | cut -d : -f 2 | awk '{$1=$1;print}');
+
+    # Check if the AWS profile is configured
+    if [[ ! -r "${aws_creds}" ]]; then
+        err "AWS credentials profile is not setup locally.\n"
+        err "Run 'aws configure' after 'awscli' package is installed\n"
+        return 1
+    fi
 
     log "Run play: $1"
     log "Project: $2"

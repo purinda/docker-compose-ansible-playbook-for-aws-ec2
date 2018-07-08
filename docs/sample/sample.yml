@@ -21,11 +21,12 @@ instance_tags:
   Name: "{{ project_label }}"
   Team: "Your Team Name"
   CostCentre: 1617
-keypair: "jordon-london"
+keypair: "sample-project-keypair"
 keypair_path: ~/.ssh/{{ keypair }}.pem
 ec2: { image: ami-5daa463a, user: ubuntu }
 
-# Launch commands, before attempting to install anything else; good opportunity to install configure AMI-specific items
+# Launch commands, before attempting to install anything else; good opportunity
+# to install configure AMI-specific items
 commands:
   - apt-get update && apt-get -y install python
 
