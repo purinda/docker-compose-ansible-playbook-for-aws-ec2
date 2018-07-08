@@ -3,9 +3,9 @@
 aws_profile: default
 
 # Region & VPC
-ec2_region: eu-west-2
-subnet: subnet-3018257a
-vpc_id: vpc-92a750fb
+ec2_region: ap-southeast-2
+subnet: subnet-c7dd7ca2
+vpc_id: vpc-06b37b63
 
 # Project specific parameters
 project_label: "sample"
@@ -23,12 +23,12 @@ instance_tags:
   CostCentre: 1617
 keypair: "sample-project-keypair"
 keypair_path: ~/.ssh/{{ keypair }}.pem
-ec2: { image: ami-5daa463a, user: ubuntu }
+ec2: { image: ami-963cecf4, user: ubuntu }
 
 # Launch commands, before attempting to install anything else; good opportunity
-# to install configure AMI-specific items
+# to run AMI-specific and project specific commands
 commands:
-  - apt-get update && apt-get -y install python
+  - echo "Sample command which does nothing important"
 
 # Update the following URL based on the RHEL/RedHat linux distro being used.
 ee:

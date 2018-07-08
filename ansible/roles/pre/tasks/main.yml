@@ -1,5 +1,19 @@
 ---
 
+# Following two tasks are responsible for setting up Python 2.x on remote hosts
+# for properly running ansible tasks.
+- name: Determine distro for pre tasks
+  raw: lsb_release --short --id | xargs echo -n
+  become: false
+  register: os_distro
+
+# Currently, Ubuntu 16.04 or later versions may require Python 2.x to be
+# installed manually.
+# https://gist.github.com/gwillem/4ba393dceb55e5ae276a87300f6b8e6f
+- name: Install python 2.7 on Ubuntu host
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  when: os_distro.stdout == "Ubuntu"
+
 - name: Prerequisit configuration
   raw: "{{ item }}"
   with_items: "{{ commands }}"
