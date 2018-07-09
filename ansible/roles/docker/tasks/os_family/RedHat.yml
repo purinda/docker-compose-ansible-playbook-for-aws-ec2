@@ -6,4 +6,6 @@
 # Add your own distro specific tasks to target others.
 - name: Run the RHEL based install
   include: "RHEL.yml"
-  when: ansible_distribution == "RedHat" | ansible_distribution == "Amazon"
+  when: 
+    - ansible_distribution == "RedHat"
+    - ansible_distribution == "Amazon"

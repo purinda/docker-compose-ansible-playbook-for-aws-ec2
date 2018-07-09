@@ -63,9 +63,11 @@
     - PyYAML
 
 - name: Enable docker
-  service: 
-    enabled=yes 
+  service:
+    enabled=yes
     name=docker
+  retries: 10
+  delay: 5
 
 - name: Restart docker
   service:
