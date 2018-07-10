@@ -23,7 +23,7 @@ instance_tags:
   CostCentre: 1617
 keypair: "sample-project-keypair"
 keypair_path: ~/.ssh/{{ keypair }}.pem
-ec2: { image: ami-33f92051, user: ec2-user }
+ec2: { image: ami-963cecf4, user: ubuntu }
 
 # Launch commands, before attempting to install anything else; good opportunity
 # to run AMI-specific and project specific commands
