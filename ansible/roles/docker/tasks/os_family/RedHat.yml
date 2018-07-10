@@ -4,7 +4,6 @@
 
 # Currently support Amazon AMIs and RedHat Enterprise Linux distros
 # Add your own distro specific tasks to target others.
-- name: Run the RHEL based install
+- name: Run the RHEL based install for Amazon AMIs
   include: "RHEL.yml"
-  when: 
-    - ansible_distribution == "Amazon"
+  when: ansible_distribution == "Amazon" or ansible_distribution == "RedHat"
