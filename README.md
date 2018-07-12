@@ -1,8 +1,8 @@
-# Docker Provisioning for EC2 instances
+# Docker AWS Provisioning Toolkit (`daws`)
 
-This playbook has only *one* purpose and one alone which is to provision 
-docker-_compose_ projects easily on Amazon EC2 service _regardless of the AMI or 
-linux distribution used_. 
+`daws` toolkit and its playbook has only *one* purpose and one alone which is 
+to provision docker-_compose_ projects easily on Amazon EC2 service 
+_regardless of the AMI or linux distribution used_. 
 
 The playbook creates an instance or instances required, deploys the application 
 and `docker-composer up -d` it.
