@@ -1,4 +1,5 @@
 # Deploying the Sample Application
+----------------------------------
 
 The sample application provided is located under `docs/sample/app.sample.` directory.
 This is a _docker-compose_ version 3 based Python + PHP application which has an

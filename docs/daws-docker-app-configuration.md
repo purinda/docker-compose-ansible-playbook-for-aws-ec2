@@ -1,4 +1,5 @@
 # Configuring Your Docker App for DAWS
+--------------------------------------
 
 You can deploy new or existing docker-compose based applications to AWS easily following the instructions on this page.
 
@@ -7,6 +8,7 @@ The toolkit is meant to be simple and the steps it follows to get your applicati
 DAWS Toolkit makes the provisioning and configuration of the server which the docker app runs extremely easy by using an ansible playbook behind the scenes.
 
 ### Configuration
+-----------------
 
 A typical docker-compose application has one or more service defined within a file named `docker-compose.yml`, the file is a service definition system for docker, nothing else.
 
@@ -43,6 +45,7 @@ The notable requirements in a docker-compose.yml for daws toolkit are
 2. Container Volumes
 
 ### Port Mapping
+----------------
 
 This section is essential for the docker-compose.yml to work correctly after deploying with daws and serve incoming requests (if you are deploying a web application). Ports that are mapped to the host will be accessible if the security group is configured to expose the particular port to outside world.
 
