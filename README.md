@@ -13,7 +13,7 @@ The playbook creates an instance or instances required, deploys the application
 
 **Fast:** Quickly get your project from development to deployment stage.
 
-**Generic:** Any docker-compose based app are supported.
+**Generic:** docker-compose based applications can be used.
 
 **Organised:** Provisioning multiple resources in AWS and tag them efficiently.
 
