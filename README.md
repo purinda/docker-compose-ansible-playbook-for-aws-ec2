@@ -1,5 +1,4 @@
 # Docker AWS Provisioning Toolkit (`daws`)
-------------------------------------------
 
 `daws` toolkit and its playbook has only *one* purpose and one alone which is 
 to provision docker-*compose* projects easily on Amazon EC2 service *regardless 
@@ -9,7 +8,6 @@ The playbook creates an instance or instances required, deploys the application
  and `docker-composer up -d` it.
 
 ## Goals
---------
 
 **Fast:** Quickly get your project from development to deployment stage.
 
@@ -17,8 +15,8 @@ The playbook creates an instance or instances required, deploys the application
 
 **Organised:** Provisioning multiple resources in AWS and tag them efficiently.
 
+
 ## Installation & Setup
------------------------
 
 This project uses python `virtualenv` package to separate project dependencies
  from rest of your python modules/configuration on your system.
@@ -39,7 +37,6 @@ Note: following is a list of dependencies that the install script will pull into
 ```
 
 ## Quick Start Guide
---------------------
 
 Your *docker-compose* project can be placed anywhere in your localhost, what is
  required is for you to configure the parameters in the deployment YML which you
@@ -51,7 +48,6 @@ Deployment configuration has to be a `yml` file that you feed to the `launch`
 > `cp project_vars.yml.sample project-abc-deploy.yml`
 
 #### Project Configuration
---------------------------
 
 Change the parameters in `project-abc-deploy.yml` to setup security groups and
  instance to fit the AWS account you have.
@@ -70,7 +66,6 @@ project_dirs:
 ```
 
 #### AWS Authentication
------------------------
 
 `aws_profile` variable is used by the playbook to access the AWS credentials and
  other information stored against profiles in `~/.aws/credentials` file.
@@ -79,7 +74,6 @@ project_dirs:
  profile section under `~/.aws/credentials` which playbook will use.
 
 ## Deployment Process Explained
--------------------------------
 
 Running the playbook: `$ ./daws launch project-abc-deploy.yml` does the following:
 
@@ -90,7 +84,6 @@ Running the playbook: `$ ./daws launch project-abc-deploy.yml` does the followin
 
 
 ## Further Reading
-------------------
 
 * [DAWS & Docker Application Configuration](docs/daws-docker-app-configuration.md)
 * [Sample Application Deployment](docs/sample-app-deployment.md)
