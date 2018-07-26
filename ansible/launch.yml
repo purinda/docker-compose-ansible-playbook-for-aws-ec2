@@ -76,4 +76,4 @@
     - group_vars/env.yml
   roles:
     - { role: docker, tags: docker }
-    - { role: compose, tags: compose }
+    - { role: compose, tags: compose, when: docker_configured }

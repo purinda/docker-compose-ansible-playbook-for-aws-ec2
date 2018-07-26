@@ -61,21 +61,6 @@
     - docker
     - docker-compose
     - PyYAML
-
-- name: Enable docker
-  service:
-    enabled=yes
-    name=docker
-  retries: 10
-  delay: 5
-
-- name: Restart docker
-  service:
-    name=docker
-    state=restarted
-  register: restart_status
-  until: restart_status is success
-  retries: 10
-  delay: 10
-  serial: 1
-  notify: "set docker service status"
+  # force changed state for notify
+  changed_when: true
+  notify: "config docker"

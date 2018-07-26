@@ -1,6 +1,23 @@
 ---
 
-- name: Set variable docker_service_restarted to "True"
+- name: Enable docker
+  service:
+    enabled=yes
+    name=docker
+  listen: config docker
+
+- name: Restart docker
+  service:
+    name=docker
+    state=restarted
+  register: restart_status
+  until: restart_status is success
+  retries: 3
+  delay: 20
+  listen: config docker
+
+- name: Allow proceed to application startup stage
   set_fact:
-    docker_service_restarted: True
-  listen: "set docker service status"
+    docker_configured: true
+  listen: config docker
+  

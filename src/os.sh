@@ -1,4 +1,4 @@
-[ $CLI_OS ] && return || CLI_OS=1
+[ $OS_SH ] && return || OS_SH=1
 
 os_family=""
 
