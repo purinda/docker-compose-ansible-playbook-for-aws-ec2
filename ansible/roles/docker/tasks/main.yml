@@ -64,3 +64,6 @@
   # force changed state for notify
   changed_when: true
   notify: "config docker"
+
+- name: Force notify handlers for starting docker service
+  meta: flush_handlers

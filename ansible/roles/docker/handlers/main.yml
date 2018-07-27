@@ -15,9 +15,4 @@
   retries: 3
   delay: 20
   listen: config docker
-
-- name: Allow proceed to application startup stage
-  set_fact:
-    docker_configured: true
-  listen: config docker
   
