@@ -64,7 +64,7 @@
     - { role: pre, tags: pre }
 
 # This play targets the new host group "launched"
-- name: Configure instance
+- name: Configure instance for the docker application
   hosts: launched
   become: yes
   remote_user: "{{ ec2.user }}"
